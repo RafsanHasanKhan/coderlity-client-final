@@ -1,0 +1,174 @@
+/* ========== BASE MENU STYLE ========== */
+.menu {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 0;
+  margin: 0;
+  flex-wrap: wrap;
+}
+
+.menu li {
+  cursor: pointer;
+  position: relative;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
+  color: #000;
+  transition: color 0.2s ease;
+}
+
+.menu li:hover {
+  color: #007ce8;
+}
+
+/* ========== MAIN SUBMENU ========== */
+.submenu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #ffffff;
+  list-style: none;
+  padding: 10px 0;
+  width: 1012px;
+  height: auto;
+  border-radius: 20px;
+  z-index: 20;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.menu li:hover > .submenu {
+  display: block;
+}
+
+/* ========== NESTED SUBMENU ========== */
+.nested-submenu {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 30%;
+  background: #fff;
+  list-style: none;
+  padding: 10px 0;
+  width: 400px;
+  border-radius: 10px;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.08);
+}
+
+.submenu li:hover > .nested-submenu {
+  display: block;
+}
+
+/* ========== MENU ITEMS ========== */
+.submenu li,
+.nested-submenu li {
+  padding: 8px 20px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+}
+
+.submenu li:hover,
+.nested-submenu li:hover {
+  background: #007ce8;
+  color: #ffffff;
+}
+
+.submenu img {
+  width: 28px;
+  height: 28px;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+/* ========== RESPONSIVE DESIGN ========== */
+
+/* ✅ Tablet (1024px ↓) */
+@media (max-width: 1024px) {
+  .submenu {
+    width: 90%;
+    height: auto;
+    flex-direction: column;
+  }
+
+  .nested-submenu {
+    left: 100%;
+    width: 250px;
+  }
+}
+
+/* ✅ Mobile (768px ↓) */
+@media (max-width: 768px) {
+  .menu {
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    background: #ffffff;
+    position: fixed;
+    top: 80px;
+    left: 0;
+    padding: 20px;
+    gap: 12px;
+    z-index: 99;
+    display: none; /* default hidden */
+  }
+
+  /* show mobile menu when toggled */
+  .menu.active {
+    display: flex;
+  }
+
+  .menu li {
+    width: 100%;
+  }
+
+  .submenu {
+    position: static;
+    transform: none;
+    width: 100%;
+    box-shadow: none;
+    border-radius: 10px;
+    display: none;
+    padding: 0;
+  }
+
+  .menu li.open > .submenu {
+    display: block;
+  }
+
+  .submenu li {
+    padding: 12px 16px;
+  }
+
+  .nested-submenu {
+    position: static;
+    width: 100%;
+    box-shadow: none;
+    display: none;
+  }
+
+  .submenu li.open > .nested-submenu {
+    display: block;
+  }
+}
+
+/* ✅ Small Mobile (480px ↓) */
+@media (max-width: 480px) {
+  .menu {
+    padding: 15px;
+  }
+
+  .submenu li {
+    font-size: 14px;
+  }
+
+  .submenu img {
+    width: 22px;
+    height: 22px;
+  }
+}
