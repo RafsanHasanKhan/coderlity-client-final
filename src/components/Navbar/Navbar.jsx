@@ -152,7 +152,7 @@ const Navbar = () => {
         </nav>
 
         {/* Right Buttons */}
-        <div className="d-flex align-items-center gap-3">
+        <div className="d-none d-lg-flex align-items-center gap-3 right-side">
           <button
             className="d-flex align-items-center gap-2 fw-medium rounded-3 px-3 py-2"
             style={{
@@ -165,14 +165,14 @@ const Navbar = () => {
           >
             <MdLogin /> My Account
           </button>
-
-          {/* Mobile Toggle Button */}
-          <PiDotsNineBold
-            className="menu-toggle-icon d-lg-none"
-            style={{ height: '35px', width: '35px', cursor: 'pointer' }}
-            onClick={() => setMenuOpen(!menuOpen)}
-          />
+          <PiDotsNineBold style={{ height: '35px', width: '35px' }} />
         </div>
+        {/* Mobile Toggle Button */}
+        <PiDotsNineBold
+          className="menu-toggle-icon d-lg-none"
+          style={{ height: '35px', width: '35px', cursor: 'pointer' }}
+          onClick={() => setMenuOpen(!menuOpen)}
+        />
       </div>
 
       {/* Mobile Menu */}
@@ -204,6 +204,20 @@ const Navbar = () => {
             )}
           </li>
         ))}
+        <button
+          className="d-flex align-items-center gap-2 fw-medium rounded-3 px-3 py-2"
+          style={{
+            fontFamily: 'Roboto, sans-serif',
+            fontSize: '16px',
+            background: '#000',
+            color: '#fff',
+            border: 0,
+            textAlign: 'center',
+            justifyContent: 'center'
+          }}
+        >
+          <MdLogin /> My Account
+        </button>
       </ul>
     </div>
   );
