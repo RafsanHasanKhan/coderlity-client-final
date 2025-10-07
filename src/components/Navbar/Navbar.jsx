@@ -1,14 +1,14 @@
-import { useState } from 'react';
 import logo from '../../../public/assets/images/logo.png';
-import jb from '../../../public/assets/images/jb.png';
 import './Navbar.css';
+import jb from '../../../public/assets/images/jb.png';
 import { IoIosArrowDown } from 'react-icons/io';
 import { MdLogin } from 'react-icons/md';
 import { PiDotsNineBold } from 'react-icons/pi';
+import { useState } from 'react';
+
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
-
   const megaMenu = [
     {
       name: 'Home',
@@ -112,67 +112,54 @@ const Navbar = () => {
         maxWidth: '1380px',
         margin: '0 auto',
         zIndex: 10,
-        padding: '20px 0',
+        padding: '20px 0px 20px 0px',
       }}
     >
       <div className="d-flex align-items-center justify-content-between">
         {/* col-1 */}
         <div>
-          <img src={logo} alt="Logo" style={{ height: '40px' }} />
+          <img src={logo} alt="" />
         </div>
-
         {/* col-2 */}
         <nav className="position-relative d-flex align-items-center">
-          <ul className={`menu ${menuOpen ? 'active' : ''}`}>
-            {megaMenu.map((item, idx) => (
-              <li key={idx}>
-                {item.name}
-                {item.submenu && (
+          <ul className="menu d-flex align-items-center gap-3 p-0 m-0 list-unstyled">
+            {megaMenu.map((item, idx) => {
+              return (
+                <li key={idx}>
+                  {item.name}
                   <IoIosArrowDown
                     style={{
                       width: '12px',
                       height: '12px',
-                      marginLeft: '4px',
+                      margin: '0px 0px 0px 4px',
                     }}
-                  />
-                )}
+                  />{' '}
+                  <span>/</span>
+                  {item.submenu && (
+                    <ul className="submenu">
+                      {item.submenu.map((sub, subIdx) => (
+                        <li key={subIdx}>
+                          <img src={sub.icon} alt="" />
+                          {sub.name}
 
-                {item.submenu && (
-                  <ul className="submenu">
-                    {item.submenu.map((sub, subIdx) => (
-                      <li key={subIdx}>
-                        {sub.icon && (
-                          <img
-                            src={sub.icon}
-                            alt=""
-                            style={{ width: '28px', height: '28px' }}
-                          />
-                        )}
-                        {sub.name}
-                        {sub.submenu && (
-                          <ul className="nested-submenu">
-                            {sub.submenu.map((nested, nestedIdx) => (
-                              <li key={nestedIdx}>{nested.name}</li>
-                            ))}
-                          </ul>
-                        )}
-                      </li>
-                    ))}
-                  </ul>
-                )}
-              </li>
-            ))}
+                          {sub.submenu && (
+                            <ul className="nested-submenu">
+                              {sub.submenu.map((nested, nestedIdx) => (
+                                <li key={nestedIdx}>{nested.name}</li>
+                              ))}
+                            </ul>
+                          )}
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+                </li>
+              );
+            })}
           </ul>
         </nav>
-
         {/* col-3 */}
-        <div
-          style={{
-            display: 'flex',
-            alignItems: 'center',
-            gap: '20px',
-          }}
-        >
+        <div style={{ display: 'flex', alignItems: 'center', gap: '20px' }}>
           <button
             style={{
               backgroundColor: '#000000',
@@ -191,13 +178,15 @@ const Navbar = () => {
             <MdLogin />
             My Account
           </button>
-
-          <PiDotsNineBold
-            style={{ height: '35px', width: '35px', cursor: 'pointer' }}
-            onClick={() => setMenuOpen(!menuOpen)}
-          />
+          <PiDotsNineBold style={{ height: '35px', width: '35px' }} />
         </div>
       </div>
+      <PiDotsNineBold
+        style={{ height: '35px', width: '35px', cursor: 'pointer' }}
+        onClick={() => setMenuOpen(!menuOpen)}
+      />
+
+      <ul className={`menu ${menuOpen ? 'active' : ''}`}></ul>
     </div>
   );
 };
