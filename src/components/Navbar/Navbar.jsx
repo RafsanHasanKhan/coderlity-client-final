@@ -6,14 +6,11 @@ import { MdLogin } from 'react-icons/md';
 import { PiDotsNineBold } from 'react-icons/pi';
 import { useState } from 'react';
 
-
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
+
   const megaMenu = [
-    {
-      name: 'Home',
-      path: '/',
-    },
+    { name: 'Home', path: '/' },
     {
       name: 'Services',
       path: '/services',
@@ -112,81 +109,102 @@ const Navbar = () => {
         maxWidth: '1380px',
         margin: '0 auto',
         zIndex: 10,
-        padding: '20px 0px 20px 0px',
+        padding: '20px 0',
       }}
     >
       <div className="d-flex align-items-center justify-content-between">
-        {/* col-1 */}
+        {/* Logo */}
         <div>
-          <img src={logo} alt="" />
+          <img src={logo} alt="logo" />
         </div>
-        {/* col-2 */}
-        <nav className="position-relative d-flex align-items-center">
-          <ul className="menu d-flex align-items-center gap-3 p-0 m-0 list-unstyled">
-            {megaMenu.map((item, idx) => {
-              return (
-                <li key={idx}>
-                  {item.name}
-                  <IoIosArrowDown
-                    style={{
-                      width: '12px',
-                      height: '12px',
-                      margin: '0px 0px 0px 4px',
-                    }}
-                  />{' '}
-                  <span>/</span>
-                  {item.submenu && (
-                    <ul className="submenu">
-                      {item.submenu.map((sub, subIdx) => (
-                        <li key={subIdx}>
-                          <img src={sub.icon} alt="" />
-                          {sub.name}
 
-                          {sub.submenu && (
-                            <ul className="nested-submenu">
-                              {sub.submenu.map((nested, nestedIdx) => (
-                                <li key={nestedIdx}>{nested.name}</li>
-                              ))}
-                            </ul>
-                          )}
-                        </li>
-                      ))}
-                    </ul>
-                  )}
-                </li>
-              );
-            })}
+        {/* Desktop Menu */}
+        <nav className="position-relative d-flex align-items-center d-none d-lg-block">
+          <ul className="menu d-flex align-items-center gap-3 p-0 m-0 list-unstyled">
+            {megaMenu.map((item, idx) => (
+              <li key={idx}>
+                {item.name}
+                {item.submenu && (
+                  <IoIosArrowDown
+                    style={{ width: '12px', height: '12px', marginLeft: '4px' }}
+                  />
+                )}
+                {item.submenu && (
+                  <ul className="submenu">
+                    {item.submenu.map((sub, subIdx) => (
+                      <li key={subIdx}>
+                        {sub.icon && <img src={sub.icon} alt="" />}
+                        {sub.name}
+                        {sub.submenu && (
+                          <ul className="nested-submenu">
+                            {sub.submenu.map((nested, nestedIdx) => (
+                              <li key={nestedIdx}>{nested.name}</li>
+                            ))}
+                          </ul>
+                        )}
+                      </li>
+                    ))}
+                  </ul>
+                )}
+              </li>
+            ))}
           </ul>
         </nav>
-        {/* col-3 */}
-        <div style={{ display: 'flex', alignItems: 'center', gap: '20px' }}>
+
+        {/* Right Buttons */}
+        <div className="d-flex align-items-center gap-3">
           <button
+            className="d-flex align-items-center gap-2 fw-medium rounded-3 px-3 py-2"
             style={{
-              backgroundColor: '#000000',
-              padding: '12px 10px',
-              color: '#ffffff',
-              border: '0px',
-              fontWeight: '500',
               fontFamily: 'Roboto, sans-serif',
               fontSize: '16px',
-              display: 'flex',
-              alignItems: 'center',
-              gap: '4px',
-              borderRadius: '12px',
+              background: '#000',
+              color: '#fff',
+              border: 0,
             }}
           >
-            <MdLogin />
-            My Account
+            <MdLogin /> My Account
           </button>
-          <PiDotsNineBold style={{ height: '35px', width: '35px' }} />
+
+          {/* Mobile Toggle Button */}
+          <PiDotsNineBold
+            className="menu-toggle-icon d-lg-none"
+            style={{ height: '35px', width: '35px', cursor: 'pointer' }}
+            onClick={() => setMenuOpen(!menuOpen)}
+          />
         </div>
       </div>
-      <PiDotsNineBold
-        style={{ height: '35px', width: '35px', cursor: 'pointer' }}
-        onClick={() => setMenuOpen(!menuOpen)}
-      />
 
-      <ul className={`menu ${menuOpen ? 'active' : ''}`}></ul>
+      {/* Mobile Menu */}
+      <ul className={`menu ${menuOpen ? 'active' : ''} d-lg-none`}>
+        {megaMenu.map((item, idx) => (
+          <li key={idx}>
+            {item.name}
+            {item.submenu && (
+              <IoIosArrowDown
+                style={{ width: '12px', height: '12px', marginLeft: '4px' }}
+              />
+            )}
+            {item.submenu && (
+              <ul className="submenu">
+                {item.submenu.map((sub, subIdx) => (
+                  <li key={subIdx}>
+                    {sub.icon && <img src={sub.icon} alt="" />}
+                    {sub.name}
+                    {sub.submenu && (
+                      <ul className="nested-submenu">
+                        {sub.submenu.map((nested, nestedIdx) => (
+                          <li key={nestedIdx}>{nested.name}</li>
+                        ))}
+                      </ul>
+                    )}
+                  </li>
+                ))}
+              </ul>
+            )}
+          </li>
+        ))}
+      </ul>
     </div>
   );
 };
