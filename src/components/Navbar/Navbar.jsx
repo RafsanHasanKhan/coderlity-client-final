@@ -7,8 +7,9 @@ import { PiDotsNineBold } from 'react-icons/pi';
 import { useState } from 'react';
 
 const Navbar = () => {
-  const [menuOpen, setMenuOpen] = useState(false);
-  const [hoveredIndex, setHoveredIndex] = useState(null); 
+  const [menuOpen, setMenuOpen] = useState(false); // Mobile main menu
+  const [hoveredIndex, setHoveredIndex] = useState(null); // Desktop hover
+  const [clickedIndex, setClickedIndex] = useState(null); // Mobile click submenu
 
   const megaMenu = [
     { name: 'Home', path: '/' },
@@ -31,6 +32,11 @@ const Navbar = () => {
     },
     { name: 'Products', path: '/products' },
   ];
+
+  const handleClick = idx => {
+    if (clickedIndex === idx) setClickedIndex(null);
+    else setClickedIndex(idx);
+  };
 
   return (
     <div
@@ -63,6 +69,7 @@ const Navbar = () => {
                   />
                 )}
 
+                {/* Desktop submenu */}
                 {item.submenu && hoveredIndex === idx && (
                   <ul className="submenu">
                     {item.submenu.map((sub, subIdx) => (
@@ -114,13 +121,25 @@ const Navbar = () => {
       <ul className={`menu ${menuOpen ? 'active' : ''} d-lg-none`}>
         {megaMenu.map((item, idx) => (
           <li key={idx}>
-            {item.name}
-            {item.submenu && (
-              <IoIosArrowDown
-                style={{ width: '12px', height: '12px', marginLeft: '4px' }}
-              />
-            )}
-            {item.submenu && (
+            <div
+              onClick={() => handleClick(idx)}
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'space-between',
+                cursor: 'pointer',
+              }}
+            >
+              <span>{item.name}</span>
+              {item.submenu && (
+                <IoIosArrowDown
+                  style={{ width: '12px', height: '12px', marginLeft: '4px' }}
+                />
+              )}
+            </div>
+
+            {/* Mobile submenu toggle */}
+            {item.submenu && clickedIndex === idx && (
               <ul className="submenu">
                 {item.submenu.map((sub, subIdx) => (
                   <li key={subIdx}>
@@ -139,6 +158,8 @@ const Navbar = () => {
             )}
           </li>
         ))}
+
+        {/* Mobile Account Button */}
         <button
           className="d-flex align-items-center gap-2 fw-medium rounded-3 px-3 py-2"
           style={{
