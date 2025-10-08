@@ -5,6 +5,7 @@ import { MdLogin } from 'react-icons/md';
 import { PiDotsNineBold } from 'react-icons/pi';
 import { useState } from 'react';
 import { megaMenu } from '../../../public/megaMenu';
+import { motion, AnimatePresence } from 'framer-motion';
 
 const Navbar = () => {
   const [hoveredIndex, setHoveredIndex] = useState(null); // desktop hover
@@ -37,33 +38,57 @@ const Navbar = () => {
                   {item.submenu && <IoIosArrowDown className="arrow-icon" />}
                 </span>
 
-                {item.submenu && hoveredIndex === idx && (
-                  <ul className="submenu">
-                    {item.submenu.map((sub, subIdx) => (
-                      <li key={subIdx}>
-                        {sub.icon && (
-                          <img src={sub.icon} alt="" className="submenu-icon" />
-                        )}
-                        <div
-                          className="submenu-description"
-                          style={{ display: 'flex', flexDirection: 'column' }}
-                        >
-                          {sub.name}
-                          <span style={{ fontSize: '10px' }}>
-                            {sub.description}
-                          </span>
-                        </div>
-                        {sub.submenu && (
-                          <ul className="nested-submenu">
-                            {sub.submenu.map((nested, nestedIdx) => (
-                              <li key={nestedIdx}>{nested.name}</li>
-                            ))}
-                          </ul>
-                        )}
-                      </li>
-                    ))}
-                  </ul>
-                )}
+                <AnimatePresence>
+                  {item.submenu && hoveredIndex === idx && (
+                    <motion.ul
+                      className="submenu"
+                      initial={{ opacity: 0, x: -10 }}
+                      animate={{ opacity: 1, x: -450 }}
+                      exit={{ opacity: 0, x: -10 }}
+                      transition={{ duration: 0.3, ease: 'easeOut' }}
+                    >
+                      {item.submenu.map((sub, subIdx) => (
+                        <li key={subIdx} className="submenu-item">
+                          {sub.icon && (
+                            <img
+                              src={sub.icon}
+                              alt=""
+                              className="submenu-icon"
+                            />
+                          )}
+                          <div
+                            className="submenu-description"
+                            style={{
+                              display: 'flex',
+                              flexDirection: 'column',
+                            }}
+                          >
+                            {sub.name}
+                            <span style={{ fontSize: '10px' }}>
+                              {sub.description}
+                            </span>
+                          </div>
+
+                          <AnimatePresence>
+                            {sub.submenu && (
+                              <motion.ul
+                                className="nested-submenu"
+                                initial={{ opacity: 0, x: -15 }}
+                                animate={{ opacity: 1, x: 0 }}
+                                exit={{ opacity: 0, x: -15 }}
+                                transition={{ duration: 0.25 }}
+                              >
+                                {sub.submenu.map((nested, nestedIdx) => (
+                                  <li key={nestedIdx}>{nested.name}</li>
+                                ))}
+                              </motion.ul>
+                            )}
+                          </AnimatePresence>
+                        </li>
+                      ))}
+                    </motion.ul>
+                  )}
+                </AnimatePresence>
               </li>
             ))}
           </ul>
@@ -74,7 +99,7 @@ const Navbar = () => {
           <button className="account-button">
             <MdLogin /> My Account
           </button>
-          <PiDotsNineBold className="dots-icon"  />
+          <PiDotsNineBold className="dots-icon" />
         </div>
 
         {/* Mobile Toggle */}
@@ -93,24 +118,43 @@ const Navbar = () => {
               {item.submenu && <IoIosArrowDown />}
             </div>
 
-            {item.submenu && clickedIndex === idx && (
-              <ul className="submenu">
-                {item.submenu.map((sub, subIdx) => (
-                  <li key={subIdx}>
-                    {sub.icon && <img src={sub.icon} alt="" style={{width: '30px', height: '30px'}}/>}
-                    {sub.name}
-                    {sub.submenu && (
-                     
-                        <ul className="nested-submenu">
+            <AnimatePresence>
+              {item.submenu && clickedIndex === idx && (
+                <motion.ul
+                  className="submenu"
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -10 }}
+                  transition={{ duration: 0.3 }}
+                >
+                  {item.submenu.map((sub, subIdx) => (
+                    <li key={subIdx}>
+                      {sub.icon && (
+                        <img
+                          src={sub.icon}
+                          alt=""
+                          style={{ width: '30px', height: '30px' }}
+                        />
+                      )}
+                      {sub.name}
+                      {sub.submenu && (
+                        <motion.ul
+                          className="nested-submenu"
+                          initial={{ opacity: 0, x: -10 }}
+                          animate={{ opacity: 1, x: 0 }}
+                          exit={{ opacity: 0, x: -10 }}
+                          transition={{ duration: 0.25 }}
+                        >
                           {sub.submenu.map((nested, nestedIdx) => (
                             <li key={nestedIdx}>{nested.name}</li>
                           ))}
-                        </ul>
-                    )}
-                  </li>
-                ))}
-              </ul>
-            )}
+                        </motion.ul>
+                      )}
+                    </li>
+                  ))}
+                </motion.ul>
+              )}
+            </AnimatePresence>
           </li>
         ))}
 
