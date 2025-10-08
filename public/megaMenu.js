@@ -46,36 +46,6 @@ export const megaMenu = [
             description:
               'Custom WordPress, Shopify, and headless CMS integration.',
           },
-          {
-            name: 'Frontend Development',
-            path: '/services/web-development/frontend',
-            description:
-              'Build stunning and responsive UI with React, HTML, CSS, and JavaScript.',
-          },
-          {
-            name: 'Backend Development',
-            path: '/services/web-development/backend',
-            description:
-              'Scalable and secure backend using Node.js, Express, and MongoDB.',
-          },
-          {
-            name: 'Full Stack Development',
-            path: '/services/web-development/fullstack',
-            description:
-              'End-to-end web solutions combining frontend and backend technologies.',
-          },
-          {
-            name: 'E-Commerce Development',
-            path: '/services/web-development/ecommerce',
-            description:
-              'Custom, secure, and conversion-optimized eCommerce platforms.',
-          },
-          {
-            name: 'CMS Development',
-            path: '/services/web-development/cms',
-            description:
-              'Custom WordPress, Shopify, and headless CMS integration.',
-          },
         ],
       },
       {
@@ -140,6 +110,28 @@ export const megaMenu = [
     ],
   },
   {
+    name: 'Digital Marketing',
+    path: '/digital-marketing',
+    submenu: [
+      { name: 'SEO Optimization', path: '/digital-marketing/seo' },
+      { name: 'Social Media Marketing', path: '/digital-marketing/social' },
+      { name: 'Content Marketing', path: '/digital-marketing/content' },
+      { name: 'Email Marketing', path: '/digital-marketing/email' },
+      { name: 'PPC Advertising', path: '/digital-marketing/ppc' },
+    ],
+  },
+  {
+    name: 'Web Hosting',
+    path: '/web-hosting',
+    submenu: [
+      { name: 'Shared Hosting', path: '/web-hosting/shared' },
+      { name: 'VPS Hosting', path: '/web-hosting/vps' },
+      { name: 'Dedicated Server', path: '/web-hosting/dedicated' },
+      { name: 'Cloud Hosting', path: '/web-hosting/cloud' },
+      { name: 'Domain Registration', path: '/web-hosting/domain' },
+    ],
+  },
+  {
     name: 'About',
     path: '/about',
     submenu: [
@@ -150,3 +142,4 @@ export const megaMenu = [
     ],
   },
 ];
+

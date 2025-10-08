@@ -95,11 +95,11 @@ const Navbar = () => {
         </nav>
 
         {/* Right Buttons */}
-        <div className="navbar-buttons d-none d-lg-flex">
+        <div className="navbar-buttons d-none d-lg-flex align-content-center">
           <button className="account-button">
             <MdLogin /> My Account
           </button>
-          <PiDotsNineBold className="dots-icon" />
+          <PiDotsNineBold className="dots-icon" style={{width:'36px',height:'36px'}} />
         </div>
 
         {/* Mobile Toggle */}

@@ -91,7 +91,8 @@
 }
 
 .submenu li:hover > .nested-submenu {
-  display: block;
+  display: flex;
+  flex-wrap: wrap;
 }
 
 /* ===== Submenu Items ===== */
@@ -116,7 +117,7 @@
 .submenu li:hover,
 .nested-submenu li:hover {
   background: #007ce8;
-  width: 300px;
+  /* width: 300px; */
   padding: 12px;
 }
 
