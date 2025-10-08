@@ -1,6 +1,5 @@
 import Footer from '../components/Footer/Footer';
-import Navbar from '../components/Navbar/Navbar';
-// import Navigation from '../components/Navbar/Navbar';
+import Navbar from '../components/Navbar/Navbar.jsx';
 
 
 const MainLayout = ({ children }) => {

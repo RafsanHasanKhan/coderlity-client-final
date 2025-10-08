@@ -1,8 +1,8 @@
-import jb from '../../../public/assets/images/jb.png'
-import apiIntergration from '../../../public/assets/images/api-intergration.png'
-import digitalMarketing from '../../../public/assets/images/digital-marketing.png'
-import mobileApplication from '../../../public/assets/images/mobile-application.png'
-import uiUx from '../../../public/assets/images/ui-ux.png'
+import jb from '../public/assets/images/jb.png'
+import apiIntergration from '../public/assets/images/api-intergration.png';
+import digitalMarketing from '../public/assets/images/digital-marketing.png';
+import mobileApplication from '../public/assets/images/mobile-application.png';
+import uiUx from '../public/assets/images/ui-ux.png';
 export const megaMenu = [
   { name: 'Home', path: '/' },
   {

@@ -4,7 +4,7 @@ import { IoIosArrowDown } from 'react-icons/io';
 import { MdLogin } from 'react-icons/md';
 import { PiDotsNineBold } from 'react-icons/pi';
 import { useState } from 'react';
-import { megaMenu } from './navbar';
+import { megaMenu } from '../../../public/megaMenu';
 
 const Navbar = () => {
   const [hoveredIndex, setHoveredIndex] = useState(null); // desktop hover
@@ -74,7 +74,7 @@ const Navbar = () => {
           <button className="account-button">
             <MdLogin /> My Account
           </button>
-          <PiDotsNineBold className="dots-icon" />
+          <PiDotsNineBold className="dots-icon"  />
         </div>
 
         {/* Mobile Toggle */}
@@ -97,14 +97,15 @@ const Navbar = () => {
               <ul className="submenu">
                 {item.submenu.map((sub, subIdx) => (
                   <li key={subIdx}>
-                    {sub.icon && <img src={sub.icon} alt="" />}
+                    {sub.icon && <img src={sub.icon} alt="" style={{width: '30px', height: '30px'}}/>}
                     {sub.name}
                     {sub.submenu && (
-                      <ul className="nested-submenu">
-                        {sub.submenu.map((nested, nestedIdx) => (
-                          <li key={nestedIdx}>{nested.name}</li>
-                        ))}
-                      </ul>
+                     
+                        <ul className="nested-submenu">
+                          {sub.submenu.map((nested, nestedIdx) => (
+                            <li key={nestedIdx}>{nested.name}</li>
+                          ))}
+                        </ul>
                     )}
                   </li>
                 ))}
