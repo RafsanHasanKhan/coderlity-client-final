@@ -6,12 +6,14 @@ import { PiDotsNineBold } from 'react-icons/pi';
 import { useState, useRef } from 'react';
 import { megaMenu } from '../../../public/megaMenu';
 import { motion, AnimatePresence } from 'framer-motion';
+import { servicesData } from '../../../public/service';
 
 const Navbar = () => {
   const [hoveredIndex, setHoveredIndex] = useState(null); // Desktop main hover
   const [activeSubmenu, setActiveSubmenu] = useState(null); // Nested submenu hover
   const [clickedIndex, setClickedIndex] = useState(null); // Mobile click
   const [menuOpen, setMenuOpen] = useState(false); // Mobile toggle
+  const [isOpen, setIsOpen] = useState(false);
 
   const mainTimeoutRef = useRef(null);
   const subTimeoutRef = useRef(null);
@@ -141,9 +143,35 @@ const Navbar = () => {
             <MdLogin /> My Account
           </button>
           <PiDotsNineBold
+            onClick={() => setIsOpen(!isOpen)}
             className="dots-icon"
             style={{ width: '36px', height: '36px' }}
           />
+
+          <AnimatePresence>
+            {isOpen ? (
+              <motion.div
+                className="dot-menu"
+                initial={{ opacity: 0, y: -50, x:-20 }}
+                animate={{ opacity: 1, y: 35, x:-20 }}
+                exit={{ opacity: 0, y: -20 }}
+                transition={{ duration: 0.3 }}
+              >
+                <ul className="dot-grid">
+                  {servicesData.map((service, idx) => {
+                    const Icon = service.icon;
+                    return (
+                      <li key={idx} className="dot-item">
+                        <Icon className="dot-icon" />
+                       
+                        <span className="dot-text">{service.name}</span>
+                      </li>
+                    );
+                  })}
+                </ul>
+              </motion.div>
+            ) : null}
+          </AnimatePresence>
         </div>
 
         {/* Mobile Toggle */}

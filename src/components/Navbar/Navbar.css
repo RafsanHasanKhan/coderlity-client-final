@@ -143,9 +143,96 @@
 
 /* ===== Mobile ===== */
 .menu-toggle-icon {
-  font-size: 22px;
+  font-size: 35px;
   cursor: pointer;
 }
+
+/* ---------- Dot Menu Wrapper ---------- */
+.dot-menu {
+  position: absolute;
+  top: 50px; /* adjust based on your navbar */
+  right: 0;
+  background: #fff;
+  padding: 16px;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+  z-index: 50;
+}
+
+/* ---------- Dot Menu Title ---------- */
+.dot-menu-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 12px;
+}
+
+/* ---------- Dot Grid ---------- */
+.dot-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* ---------- Dot Item ---------- */
+.dot-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 70px;
+  height: 70px;
+  border-radius: 10%;
+  background: #f3f4f6;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: #000000;
+}
+
+.dot-item:hover {
+  background: #E6F3FF;
+  color: #000000;
+  transform: scale(1.1);
+}
+
+/* ---------- Dot Icon ---------- */
+.dot-icon {
+  width: 24px;
+  height: 24px;
+  color: #4b5563;
+  margin-bottom: 4px;
+  transition: color 0.3s ease;
+}
+
+
+/* ---------- Dot Heading ---------- */
+.dot-heading {
+  font-size: 18px;
+  margin: 0;
+  color: #333;
+}
+
+/* ---------- Dot Text ---------- */
+.dot-text {
+  font-size: 10px;
+  text-align: center;
+  color: #374151;
+  transition: color 0.3s ease;
+}
+
+.dot-item:hover .dot-text {
+  color: #000000;
+}
+
+@media (max-width: 1220px) {
+  .menu-title {
+    padding: 0px;
+  }
+}
+
 
 @media (max-width: 991px) {
   .desktop-menu,
@@ -207,3 +294,4 @@
     justify-content: center;
   }
 }
+
