@@ -3,17 +3,51 @@ import './Navbar.css';
 import { IoIosArrowDown } from 'react-icons/io';
 import { MdLogin } from 'react-icons/md';
 import { PiDotsNineBold } from 'react-icons/pi';
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import { megaMenu } from '../../../public/megaMenu';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const Navbar = () => {
-  const [hoveredIndex, setHoveredIndex] = useState(null); // desktop hover
-  const [clickedIndex, setClickedIndex] = useState(null); // mobile click
-  const [menuOpen, setMenuOpen] = useState(false); // mobile toggle
+  const [hoveredIndex, setHoveredIndex] = useState(null); // Desktop main hover
+  const [activeSubmenu, setActiveSubmenu] = useState(null); // Nested submenu hover
+  const [clickedIndex, setClickedIndex] = useState(null); // Mobile click
+  const [menuOpen, setMenuOpen] = useState(false); // Mobile toggle
 
+  const mainTimeoutRef = useRef(null);
+  const subTimeoutRef = useRef(null);
+
+  // --- MAIN MENU HOVER HANDLERS ---
+  const handleMainMouseEnter = idx => {
+    clearTimeout(mainTimeoutRef.current);
+    setHoveredIndex(idx);
+  };
+
+  const handleMainMouseLeave = () => {
+    mainTimeoutRef.current = setTimeout(() => {
+      setHoveredIndex(null);
+    }, 500); // main submenu close delay
+  };
+
+  // --- SUBMENU (NESTED) HOVER HANDLERS ---
+  const handleSubMouseEnter = subIdx => {
+    clearTimeout(subTimeoutRef.current);
+    setActiveSubmenu(subIdx);
+  };
+
+  const handleSubMouseLeave = () => {
+    subTimeoutRef.current = setTimeout(() => {
+      setActiveSubmenu(null);
+    }, 300); // nested submenu close delay
+  };
+
+  // --- MOBILE CLICK HANDLER ---
   const handleClick = idx => {
     setClickedIndex(clickedIndex === idx ? null : idx);
+  };
+
+  // --- MOBILE MENU TOGGLE ---
+  const toggleMenu = () => {
+    setMenuOpen(!menuOpen);
   };
 
   return (
@@ -30,14 +64,15 @@ const Navbar = () => {
             {megaMenu.map((item, idx) => (
               <li
                 key={idx}
-                onMouseEnter={() => setHoveredIndex(idx)}
-                onMouseLeave={() => setHoveredIndex(null)}
+                onMouseEnter={() => handleMainMouseEnter(idx)}
+                onMouseLeave={handleMainMouseLeave}
               >
                 <span className="menu-title">
                   {item.name}
                   {item.submenu && <IoIosArrowDown className="arrow-icon" />}
                 </span>
 
+                {/* --- Main Submenu --- */}
                 <AnimatePresence>
                   {item.submenu && hoveredIndex === idx && (
                     <motion.ul
@@ -48,7 +83,12 @@ const Navbar = () => {
                       transition={{ duration: 0.3, ease: 'easeOut' }}
                     >
                       {item.submenu.map((sub, subIdx) => (
-                        <li key={subIdx} className="submenu-item">
+                        <li
+                          key={subIdx}
+                          className="submenu-item"
+                          onMouseEnter={() => handleSubMouseEnter(subIdx)}
+                          onMouseLeave={handleSubMouseLeave}
+                        >
                           {sub.icon && (
                             <img
                               src={sub.icon}
@@ -69,8 +109,9 @@ const Navbar = () => {
                             </span>
                           </div>
 
+                          {/* --- Nested Submenu --- */}
                           <AnimatePresence>
-                            {sub.submenu && (
+                            {sub.submenu && activeSubmenu === subIdx && (
                               <motion.ul
                                 className="nested-submenu"
                                 initial={{ opacity: 0, x: -15 }}
@@ -99,17 +140,20 @@ const Navbar = () => {
           <button className="account-button">
             <MdLogin /> My Account
           </button>
-          <PiDotsNineBold className="dots-icon" style={{width:'36px',height:'36px'}} />
+          <PiDotsNineBold
+            className="dots-icon"
+            style={{ width: '36px', height: '36px' }}
+          />
         </div>
 
         {/* Mobile Toggle */}
         <PiDotsNineBold
           className="menu-toggle-icon d-lg-none"
-          onClick={() => setMenuOpen(!menuOpen)}
+          onClick={toggleMenu}
         />
       </div>
 
-      {/* Mobile Menu */}
+      {/* --- Mobile Menu --- */}
       <ul className={`menu mobile-menu d-lg-none ${menuOpen ? 'active' : ''}`}>
         {megaMenu.map((item, idx) => (
           <li key={idx}>
