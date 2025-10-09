@@ -73,6 +73,7 @@
   left: 50%;
   width: 47px;
   height: 48px;
+  animation: bounce 1.5s infinite;
 }
 
 .icon-right {
@@ -81,6 +82,7 @@
   transform: translate(50%, -50%);
   width: 47px;
   height: 48px;
+  animation: bounce 1.5s infinite;
 }
 
 .icon-bottom {
@@ -88,6 +90,7 @@
   left: 50%;
   width: 37px;
   height: 37px;
+  animation: bounce 1.5s infinite;
 }
 
 .icon-left {
@@ -96,6 +99,7 @@
   transform: translate(-50%, -50%);
   width: 46px;
   height: 46px;
+  animation: bounce 1.5s infinite;
 }
 
 /* ==========================
