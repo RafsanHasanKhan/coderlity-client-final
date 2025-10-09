@@ -1,4 +1,8 @@
 .hero {
+  max-width: 1380px;
+  margin: 0 auto;
+}
+.hero-container {
   position: relative;
   top: -95px;
   z-index: -10;
@@ -11,9 +15,65 @@
   text-align: center;
   padding: 60px 20px;
 }
+.icon-container-left {
+  position: absolute;
+  top: 200px;
+  left: 0px;
+}
+.icon-container-right {
+  position: absolute;
+  top: 200px;
+  right: 0px;
+}
+/* Icon Box Container */
+.icon-box {
+  width: 240px;
+  height: 370px;
+  top: 65px; 
+  left: 0;    
+  position: relative;
+}
+
+/* Common styles for all icons */
+.icon {
+  position: absolute;
+  transform: translate(-50%, -50%); /* Centers based on positioning */
+}
+
+/* Individual positions */
+.icon-top {
+  top: 0;
+  left: 50%;
+  width: 47px;
+  height: 48px;
+}
+
+.icon-right {
+  top: 50%;
+  right: 0;
+  transform: translate(50%, -50%); 
+  width: 47px;
+  height: 48px;
+}
+
+.icon-bottom {
+  bottom: 0;
+  left: 50%;
+  width: 37px;
+  height: 37px;
+}
+
+.icon-left {
+  top: 50%;
+  left: 0;
+  transform: translate(-50%, -50%);
+  width: 46px;
+  height: 46px;
+}
+
 
 .hero::before {
-  content: "";
+  content: '';
   position: absolute;
   top: 0;
   left: 0;
@@ -22,16 +82,23 @@
   z-index: -10;
   background: linear-gradient(
     75deg,
-    #D3EAFF 0%,
-    #FFFFFF 40%,
+    #d3eaff 0%,
+    #ffffff 40%,
     #e2effc 60%,
-    #FFFFFF 100%
+    #ffffff 100%
   );
 }
 
 /* ===== Text Styles ===== */
+/* .hero__subtitle {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin: 0 auto;
+} */
+
 .hero__subtitle h2 {
-  font-family: "JetBrains Mono", monospace;
+  font-family: 'JetBrains Mono', monospace;
   font-size: 1.8rem;
   font-weight: 500;
   margin-bottom: 10px;
@@ -121,7 +188,8 @@
 }
 
 @keyframes bounce {
-  0%, 100% {
+  0%,
+  100% {
     transform: translateY(0);
   }
   50% {
