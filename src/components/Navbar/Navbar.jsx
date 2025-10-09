@@ -3,7 +3,7 @@ import './Navbar.css';
 import { IoIosArrowDown } from 'react-icons/io';
 import { MdLogin } from 'react-icons/md';
 import { PiDotsNineBold } from 'react-icons/pi';
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { megaMenu } from '../../../public/megaMenu';
 import { motion, AnimatePresence } from 'framer-motion';
 import { servicesData } from '../../../public/service';
@@ -18,16 +18,23 @@ const Navbar = () => {
   const mainTimeoutRef = useRef(null);
   const subTimeoutRef = useRef(null);
 
+  // --- Sticky Navbar ---
+  const [isSticky, setIsSticky] = useState(false);
+  useEffect(() => {
+    const handleScroll = () => setIsSticky(window.scrollY > 50);
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   // --- MAIN MENU HOVER HANDLERS ---
   const handleMainMouseEnter = idx => {
     clearTimeout(mainTimeoutRef.current);
     setHoveredIndex(idx);
   };
-
   const handleMainMouseLeave = () => {
     mainTimeoutRef.current = setTimeout(() => {
       setHoveredIndex(null);
-    }, 500); // main submenu close delay
+    }, 500);
   };
 
   // --- SUBMENU (NESTED) HOVER HANDLERS ---
@@ -35,7 +42,6 @@ const Navbar = () => {
     clearTimeout(subTimeoutRef.current);
     setActiveSubmenu(subIdx);
   };
-
   const handleSubMouseLeave = () => {
     subTimeoutRef.current = setTimeout(() => {
       setActiveSubmenu(null);
@@ -48,12 +54,10 @@ const Navbar = () => {
   };
 
   // --- MOBILE MENU TOGGLE ---
-  const toggleMenu = () => {
-    setMenuOpen(!menuOpen);
-  };
+  const toggleMenu = () => setMenuOpen(!menuOpen);
 
   return (
-    <header className="navbar-container">
+    <header className={`navbar-container ${isSticky ? 'sticky' : ''}`}>
       <div className="navbar-inner">
         {/* Logo */}
         <div className="navbar-logo">
@@ -74,7 +78,7 @@ const Navbar = () => {
                   {item.submenu && <IoIosArrowDown className="arrow-icon" />}
                 </span>
 
-                {/* --- Main Submenu --- */}
+                {/* Main Submenu */}
                 <AnimatePresence>
                   {item.submenu && hoveredIndex === idx && (
                     <motion.ul
@@ -100,10 +104,7 @@ const Navbar = () => {
                           )}
                           <div
                             className="submenu-description"
-                            style={{
-                              display: 'flex',
-                              flexDirection: 'column',
-                            }}
+                            style={{ display: 'flex', flexDirection: 'column' }}
                           >
                             {sub.name}
                             <span style={{ fontSize: '10px' }}>
@@ -111,7 +112,7 @@ const Navbar = () => {
                             </span>
                           </div>
 
-                          {/* --- Nested Submenu --- */}
+                          {/* Nested Submenu */}
                           <AnimatePresence>
                             {sub.submenu && activeSubmenu === subIdx && (
                               <motion.ul
@@ -149,11 +150,11 @@ const Navbar = () => {
           />
 
           <AnimatePresence>
-            {isOpen ? (
+            {isOpen && (
               <motion.div
                 className="dot-menu"
-                initial={{ opacity: 0, y: -50, x:-20 }}
-                animate={{ opacity: 1, y: 35, x:-20 }}
+                initial={{ opacity: 0, y: -50, x: -20 }}
+                animate={{ opacity: 1, y: 35, x: -20 }}
                 exit={{ opacity: 0, y: -20 }}
                 transition={{ duration: 0.3 }}
               >
@@ -163,14 +164,13 @@ const Navbar = () => {
                     return (
                       <li key={idx} className="dot-item">
                         <Icon className="dot-icon" />
-                       
                         <span className="dot-text">{service.name}</span>
                       </li>
                     );
                   })}
                 </ul>
               </motion.div>
-            ) : null}
+            )}
           </AnimatePresence>
         </div>
 
@@ -181,7 +181,7 @@ const Navbar = () => {
         />
       </div>
 
-      {/* --- Mobile Menu --- */}
+      {/* Mobile Menu */}
       <ul className={`menu mobile-menu d-lg-none ${menuOpen ? 'active' : ''}`}>
         {megaMenu.map((item, idx) => (
           <li key={idx}>

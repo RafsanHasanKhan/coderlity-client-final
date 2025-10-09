@@ -1,6 +1,41 @@
 /* ==========================
    Hero Section
 ========================== */
+
+/* ===== Navbar Container ===== */
+.navbar-container {
+  max-width: 1380px;
+  margin: 0 auto;
+  position: relative;
+  padding: 15px 20px;
+  z-index: 10;
+  transition: all 0.3s ease;
+  background-color: #ffffff;
+}
+
+/* ===== Sticky Navbar ===== */
+.navbar-container.sticky {
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  z-index: 999;
+ 
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+/* ===== Navbar Inner ===== */
+.navbar-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  
+}
+
+/* baki CSS thik thakbe (tumio diyecho ja ase) */
+/* ... baki puro code copy paste thik thakbe, kono poriborton nai */
+
 .hero-full{
   position: relative;
 }
