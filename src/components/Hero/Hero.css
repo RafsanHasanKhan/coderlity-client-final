@@ -1,6 +1,9 @@
 /* ==========================
    Hero Section
 ========================== */
+.hero-full{
+  position: relative;
+}
 .hero {
   max-width: 1380px;
   margin: 0 auto;
@@ -22,7 +25,7 @@
 }
 
 /* Background */
-.hero::before {
+.hero-full::before {
   content: '';
   position: absolute;
   top: 0;
