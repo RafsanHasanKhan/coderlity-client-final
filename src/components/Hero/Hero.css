@@ -1,3 +1,7 @@
+/* ==========================
+        Hero Section
+   ========================== */
+
 .hero {
   max-width: 1380px;
   margin: 0 auto;
@@ -158,6 +162,9 @@
   max-width: 450px;
   width: 100%;
   margin: 40px 0;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 /* Scroll Section */
@@ -233,37 +240,44 @@
 
 /* Tablets (<= 1024px) */
 @media (max-width: 1024px) {
-  .hero__title h1 { width: 90%; font-size: 48px; }
-  .hero__subtitle h2 { font-size: 1.6rem; }
-  .hero__buttons { gap: 16px; }
-  .hero__image img { max-width: 380px; }
+  .hero__title h1 { width: 90%; font-size: 48px; text-align: center; }
+  .hero__subtitle h2 { font-size: 1.6rem; text-align: center; }
+  .hero__buttons { gap: 16px; flex-direction: column; align-items: center; width: 100%; }
+  .hero__btn { text-align: center; }
+  .hero__image img { max-width: 380px; display: block; margin: 0 auto; }
   .icon-container-left, .icon-container-right { display: none; }
-  .scroll-section { flex-direction: column; gap: 20px; }
-  .services-list { gap: 8px; }
+  .scroll-section { flex-direction: column; gap: 20px; align-items: center; }
+  .services-list { flex-direction: row;  width: 100%; max-width: 100%; }
+  .services-list__item a { width: 100%; text-align: center; }
   .scroll-section__icon img { width: 120px; height: 120px; }
-  .scroll-section__extras { gap: 12px; }
+  .scroll-section__extras { gap: 12px; justify-content: center; }
 }
 
 /* Mobile (<= 768px) */
 @media (max-width: 768px) {
-  .hero { top: -70px; padding: 40px 15px; }
-  .hero__title h1 { font-size: 36px; margin: 15px auto 30px; }
-  .hero__subtitle h2 { font-size: 1.4rem; }
-  .hero__buttons { flex-direction: column; gap: 15px; }
-  .hero__btn { width: 80%; max-width: 280px; }
-  .hero__image img { max-width: 320px; }
+  .hero { top: -70px; padding: 20px 0; }
+  .hero__title h1 { font-size: 36px; margin: 10px 0 20px; text-align: center; width: 100%; padding: 0 15px; }
+  .hero__subtitle h2 { font-size: 1.4rem; margin-bottom: 15px; text-align: center; width: 100%; padding: 0 15px; }
+  .hero__buttons { flex-direction: column; gap: 15px; width: 100%; padding: 0 15px; align-items: center; }
+  .hero__btn { width: 100%; max-width: 100%; text-align: center; display: flex; justify-content: center; }
+  .hero__image img { width: 100%; max-width: 100%; margin: 20px auto; }
+  .scroll-section { flex-direction: column-reverse; gap: 16px; align-items: center; }
   .scroll-section__icon img { width: 100px; height: 100px; }
-  .scroll-section { gap: 16px; }
+  .services-list { flex-direction: row; width: 100%; max-width: 100%; gap: 8px; align-items: center; padding: 0px; }
+  .services-list__item a { width: 100%; text-align: center; }
+  .scroll-section__extras { gap: 12px; justify-content: center; }
 }
 
 /* Small Mobile (<= 480px) */
 @media (max-width: 480px) {
-  .hero { padding: 30px 10px; }
-  .hero__title h1 { font-size: 28px; }
-  .hero__subtitle h2 { font-size: 1.2rem; }
-  .hero__buttons { gap: 12px; }
-  .hero__image img { max-width: 260px; }
+  .hero { padding: 15px 0; }
+  .hero__title h1 { font-size: 28px; padding: 0 10px; text-align: center; }
+  .hero__subtitle h2 { font-size: 1.2rem; padding: 0 10px; text-align: center; }
+  .hero__buttons { gap: 10px; padding: 0 10px; align-items: center; flex-direction: column; }
+  .hero__btn { width: 100%; text-align: center; }
+  .hero__image img { width: 100%; max-width: 100%; margin: 15px auto; }
   .scroll-section__icon img { width: 70px; height: 70px; }
-  .scroll-section__extras { gap: 8px; }
-  .services-list { gap: 6px; }
+  .services-list { flex-direction: row; gap: 6px; width: 100%; max-width: 100%; align-items: center; padding: 0 10px; }
+  .services-list__item a { width: 100%; text-align: center; }
+  .scroll-section__extras { gap: 8px; justify-content: center; }
 }

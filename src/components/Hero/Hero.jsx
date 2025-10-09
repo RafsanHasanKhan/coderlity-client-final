@@ -68,38 +68,40 @@ const Hero = () => {
             <img src={downScroll} alt="Scroll Down" />
           </div>
 
-          <div className="scroll-section__services">
-            <ul className="services-list">
-              <li className="services-list__item">
-                <a href="#" className="active">
-                  Web Application
-                </a>
-              </li>
-              <li className="services-list__item">
-                <a href="#">Mobile Application</a>
-              </li>
-              <li className="services-list__item">
-                <a href="#">Zacta E-Invoicing</a>
-              </li>
-              <li className="services-list__item">
-                <a href="#">Digital Marketing</a>
-              </li>
-              <li className="services-list__item">
-                <a href="#">UI/UX</a>
-              </li>
-              <li className="services-list__item">
-                <a href="#">Tech Consultancy</a>
-              </li>
-            </ul>
-          </div>
+          <div className='d-flex flex-column'>
+            <div className="scroll-section__services">
+              <ul className="services-list">
+                <li className="services-list__item">
+                  <a href="#" className="active">
+                    Web Application
+                  </a>
+                </li>
+                <li className="services-list__item">
+                  <a href="#">Mobile Application</a>
+                </li>
+                <li className="services-list__item">
+                  <a href="#">Zacta E-Invoicing</a>
+                </li>
+                <li className="services-list__item">
+                  <a href="#">Digital Marketing</a>
+                </li>
+                <li className="services-list__item">
+                  <a href="#">UI/UX</a>
+                </li>
+                <li className="services-list__item">
+                  <a href="#">Tech Consultancy</a>
+                </li>
+              </ul>
+            </div>
 
-          <div className="scroll-section__extras">
-            <img src={chat} alt="Chat" className="scroll-section__chat" />
-            <img
-              src={threeDotTwo}
-              alt="More Options"
-              className="scroll-section__dots"
-            />
+            <div className="scroll-section__extras">
+              <img src={chat} alt="Chat" className="scroll-section__chat" />
+              <img
+                src={threeDotTwo}
+                alt="More Options"
+                className="scroll-section__dots"
+              />
+            </div>
           </div>
         </div>
       </div>
