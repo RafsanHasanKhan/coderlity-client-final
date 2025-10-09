@@ -16,7 +16,7 @@
   align-items: center;
   justify-content: center;
   width: 100%;
-  min-height: 100vh;
+  /* min-height: 100vh; */
   text-align: center;
   padding: 60px 20px;
 }
@@ -257,7 +257,7 @@
 @media (max-width: 768px) {
   .hero { top: -70px; padding: 20px 0; }
   .hero-container {
-    min-height: auto;
+    /* min-height: auto; */
   }
   .hero__title h1 { font-size: 36px; margin: 10px 0 20px; text-align: center; width: 100%; padding: 0 15px; }
   .hero__subtitle h2 { font-size: 1.4rem; margin-bottom: 15px; text-align: center; width: 100%; padding: 0 15px; }
@@ -275,7 +275,7 @@
 @media (max-width: 480px) {
   .hero { padding: 15px 0; }
   .hero-container {
-    min-height: auto;
+    /* min-height: auto; */
   }
   .hero__title h1 { font-size: 28px; padding: 0 10px; text-align: center; }
   .hero__subtitle h2 { font-size: 1.2rem; padding: 0 10px; text-align: center; }
