@@ -1,6 +1,20 @@
 import './Hero.css'
-import fatoora from '../../../public/assets/images/fatoora.png'
-import downScroll from '../../../public/assets/images/down-scroll.png'
+import fatoora from '../../../public/assets/images/hero/fatoora.png'
+import downScroll from '../../../public/assets/images/hero/down-scroll.png'
+import chat from '../../../public/assets/images/hero/chat.png'
+import crm from '../../../public/assets/images/hero/crm.png'
+import figma from '../../../public/assets/images/hero/figma.png'
+import flutter from '../../../public/assets/images/hero/flutter.png'
+import laravel from '../../../public/assets/images/hero/laravel.png'
+import marketing from '../../../public/assets/images/hero/marketing.png'
+import mern from '../../../public/assets/images/hero/mern.png'
+import phone from '../../../public/assets/images/hero/phone.png'
+import pos from '../../../public/assets/images/hero/pos.png';
+import threeDot from '../../../public/assets/images/hero/three-dot.png';
+import wordpress from '../../../public/assets/images/hero/wordpress.png';
+
+
+
 const Hero = () => {
   return (
     <div className="hero">
