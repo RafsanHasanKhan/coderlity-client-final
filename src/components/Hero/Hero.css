@@ -256,12 +256,15 @@
 /* Mobile (<= 768px) */
 @media (max-width: 768px) {
   .hero { top: -70px; padding: 20px 0; }
+  .hero-container {
+    min-height: auto;
+  }
   .hero__title h1 { font-size: 36px; margin: 10px 0 20px; text-align: center; width: 100%; padding: 0 15px; }
   .hero__subtitle h2 { font-size: 1.4rem; margin-bottom: 15px; text-align: center; width: 100%; padding: 0 15px; }
   .hero__buttons { flex-direction: column; gap: 15px; width: 100%; padding: 0 15px; align-items: center; }
   .hero__btn { width: 100%; max-width: 100%; text-align: center; display: flex; justify-content: center; }
   .hero__image img { width: 100%; max-width: 100%; margin: 20px auto; }
-  .scroll-section { flex-direction: column-reverse; gap: 16px; align-items: center; }
+  .scroll-section { flex-direction: column; gap: 16px; align-items: center; }
   .scroll-section__icon img { width: 100px; height: 100px; }
   .services-list { flex-direction: row; width: 100%; max-width: 100%; gap: 8px; align-items: center; padding: 0px; }
   .services-list__item a { width: 100%; text-align: center; }
@@ -271,13 +274,16 @@
 /* Small Mobile (<= 480px) */
 @media (max-width: 480px) {
   .hero { padding: 15px 0; }
+  .hero-container {
+    min-height: auto;
+  }
   .hero__title h1 { font-size: 28px; padding: 0 10px; text-align: center; }
   .hero__subtitle h2 { font-size: 1.2rem; padding: 0 10px; text-align: center; }
   .hero__buttons { gap: 10px; padding: 0 10px; align-items: center; flex-direction: column; }
   .hero__btn { width: 100%; text-align: center; }
   .hero__image img { width: 100%; max-width: 100%; margin: 15px auto; }
   .scroll-section__icon img { width: 70px; height: 70px; }
-  .services-list { flex-direction: row; gap: 6px; width: 100%; max-width: 100%; align-items: center; padding: 0 10px; }
+  .services-list { flex-direction: row; gap: 6px; width: 100%; align-items: center; padding: 0 10px; }
   .services-list__item a { width: 100%; text-align: center; }
   .scroll-section__extras { gap: 8px; justify-content: center; }
 }
