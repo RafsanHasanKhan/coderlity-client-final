@@ -39,7 +39,7 @@ const Navbar = () => {
   const handleSubMouseLeave = () => {
     subTimeoutRef.current = setTimeout(() => {
       setActiveSubmenu(null);
-    }, 300); // nested submenu close delay
+    }, 300);
   };
 
   // --- MOBILE CLICK HANDLER ---
