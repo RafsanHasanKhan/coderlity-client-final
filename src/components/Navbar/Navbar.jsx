@@ -57,7 +57,11 @@ const Navbar = () => {
   const toggleMenu = () => setMenuOpen(!menuOpen);
 
   return (
-    <header className={`navbar-container ${isSticky ? 'sticky' : ''}`}>
+    <header
+      className={`navbar-container ${
+        isSticky ? 'sticky navbar-backround' : ''
+      }`}
+    >
       <div className="navbar-inner">
         {/* Logo */}
         <div className="navbar-logo">

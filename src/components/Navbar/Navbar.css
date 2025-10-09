@@ -6,6 +6,9 @@
   padding: 15px 20px;
   z-index: 10;
 }
+.navbar-backround{
+  background: #ffffff;
+}
 
 /* ===== Navbar Inner ===== */
 .navbar-inner {
