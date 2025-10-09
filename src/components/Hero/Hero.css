@@ -372,7 +372,9 @@
 /* Small Mobile (<= 480px) */
 @media (max-width: 480px) {
   .hero-container {
-    padding: 40px 10px;
+
+    min-height: 100vh;
+    padding: 150px 20px 0px 20px;
   }
 
   .hero__title h1 {
