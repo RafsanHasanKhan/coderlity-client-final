@@ -1,25 +1,25 @@
 import './Footer.css'
+import whiteLogo from '../../../public/assets/images/logo-white.png'
 const Footer = () => {
   return (
     <footer className="footer">
       <div className="footer-container">
-        {/* About / Description */}
-        <div className="footer-about">
-          <h2>Coderlity</h2>
-          <p>
-            Coderlity.com is a leading provider of complete digital solutions,
-            offering a wide range of services including web development, app
-            development, ERP solutions, UI/UX design, digital marketing, IT
-            consultation, and domain hosting. We also offer premium digital
-            products such as PHP Laravel, HTML React JS front-end templates, and
-            MERN projects. Our mission is to empower businesses by providing
-            innovative, high-quality, and scalable digital solutions that meet
-            your unique needs.
-          </p>
-        </div>
-
         {/* Footer Sections */}
         <div className="footer-sections">
+          {/* About / Description */}
+          <div className="footer-about">
+            <img src={whiteLogo} alt="" />
+            <p className='' style={{margin: '38px 0px'}}>
+              Coderlity.com is a leading provider of complete digital solutions,
+              offering a wide range of services including web development, app
+              development, ERP solutions, UI/UX design, digital marketing, IT
+              consultation, and domain hosting. We also offer premium digital
+              products such as PHP Laravel, HTML React JS front-end templates,
+              and MERN projects. Our mission is to empower businesses by
+              providing innovative, high-quality, and scalable digital solutions
+              that meet your unique needs.
+            </p>
+          </div>
           <div className="footer-section">
             <h3>Services</h3>
             <ul>
