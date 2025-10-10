@@ -1,4 +1,5 @@
 import Hero from "../../components/Hero/Hero";
+import DigitalSolutions from "./DigitalSolutions/DigitalSolutions";
 import Featured from "./Featured/Featured";
 import Products from "./Products/Products";
 import Service from "./Services/Service";
@@ -11,6 +12,7 @@ const Home = () => {
       <Service></Service>
       <Products></Products>
       <Featured></Featured>
+      <DigitalSolutions></DigitalSolutions>
     </div>
   );
 };

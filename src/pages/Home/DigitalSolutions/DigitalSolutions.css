@@ -1,0 +1,167 @@
+.digital-solutions-section {
+  padding: 80px 20px;
+  background: #e6f3ff;
+  font-family: 'Poppins', sans-serif;
+}
+
+.digital-solutions-container {
+  max-width: 1380px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  /* align-items: center; */
+  gap: 200px;
+}
+
+/* ===== Left Column ===== */
+.intro-column {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.digital-solutions-image img {
+  /* width: 100%; */
+  /* max-width: 400px; */
+  margin-bottom: 60px;
+}
+
+.digital-solutions-title {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 52px;
+  line-height: 130%;
+  color: #2a2a2a;
+  max-width: 381px;
+}
+
+.digital-solutions-description {
+  max-width: 477px;
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 150%;
+  color: #555555;
+}
+
+/* ===== Right Column ===== */
+.services-column {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* ===== Accordion ===== */
+.accordion-card {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.accordion-card:hover {
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+.accordion-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 20px 25px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 1.1rem;
+  background: #f0f0f0;
+  color: #010015;
+  transition: all 0.3s ease;
+}
+
+.accordion-number {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 16px;
+  color: #2a2a2a;
+}
+
+.accordion-description {
+  padding: 0px 15px 25px 50px;
+font-family: 'Quicksand';
+font-style: normal;
+font-weight: 400;
+font-size: 14px;
+line-height: 150%;
+color: #FFFFFF;
+
+
+}
+
+/* ===== ACTIVE STATE ===== */
+.accordion-card.active .accordion-title,
+.accordion-card.active .accordion-description {
+  background: #007bff;
+  color: #fff;
+}
+
+.accordion-card.active .accordion-number {
+  color: #fff;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 1024px) {
+  .digital-solutions-container {
+    grid-template-columns: 1fr;
+    gap: 60px;
+    text-align: center;
+  }
+
+  .intro-column {
+    align-items: center;
+  }
+
+  .digital-solutions-title {
+    font-size: 2.2rem;
+  }
+
+  .digital-solutions-description {
+    font-size: 1rem;
+    max-width: 90%;
+  }
+
+  .services-column {
+    align-items: center;
+  }
+
+  .accordion-card {
+    width: 100%;
+    max-width: 600px;
+  }
+}
+
+@media (max-width: 768px) {
+  .digital-solutions-section {
+    padding: 60px 15px;
+  }
+
+  .digital-solutions-title {
+    font-size: 1.8rem;
+  }
+
+  .accordion-title {
+    font-size: 1rem;
+    padding: 18px 20px;
+  }
+
+  .accordion-description {
+    padding: 12px 20px 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .digital-solutions-title {
+    font-size: 1.6rem;
+  }
+}
