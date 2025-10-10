@@ -194,8 +194,9 @@
 
 .service-domain-btn.ai-btn {
   background-color: transparent;
-  border: 2px solid #007ce8;
-  color: #007ce8;
+  /* border: 2px solid #007ce8; */
+  /* color: #007ce8; */
+  color: #000000;
 }
 
 .service-domain-btn.ai-btn:hover {
@@ -273,6 +274,40 @@
   max-width: 600px;
   margin-top: 20px;
 }
+
+.service-domain-wrapper {
+  display: flex;
+  width: 100%;
+  max-width: 500px; /* adjust as needed */
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  overflow: hidden; /* button fits inside */
+  padding: 10px 20px;
+  gap: 10px;
+}
+
+.service-domain-input {
+  flex: 1;
+  padding: 10px 16px;
+  border: none;
+  outline: none;
+  font-size: 16px;
+}
+
+.service-domain-btn {
+  padding: 0px 20px;
+  background-color: #007CE8;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background-color 0.3s;
+}
+
+.service-domain-btn:hover {
+  background-color: #005bb5;
+}
+
 
 /* Large Tablet / Desktop (max-width: 1024px) */
 @media (max-width: 1024px) {
