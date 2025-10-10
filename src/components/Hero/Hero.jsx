@@ -157,7 +157,7 @@ const Hero = () => {
             transition={{ duration: 1.5 }}
           >
             <motion.div
-              className="scroll-section__icon"
+              className="scroll-section-icon-top"
               animate={inView ? { y: [0, 10, 0] } : {}}
               transition={{ repeat: Infinity, duration: 1.8 }}
             >
@@ -193,10 +193,17 @@ const Hero = () => {
               animate={inView ? { opacity: 1 } : {}}
               transition={{ delay: 1.2, duration: 0.8 }}
             >
+              <motion.div
+                className="scroll-section-icon-bottom"
+                animate={inView ? { y: [0, -10, 0] } : {}}
+                transition={{ repeat: Infinity, duration: 1.8 }}
+              >
+                <img src={downScroll} alt="Scroll Down" />
+              </motion.div>
               <motion.img
                 src={chat}
                 alt="Chat"
-                className="scroll-section__chat"
+                className="scroll-section-chat"
                 whileHover={{ scale: 1.1 }}
               />
               <motion.img

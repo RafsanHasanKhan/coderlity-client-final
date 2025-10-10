@@ -399,6 +399,7 @@
 
 /* Mobile Portrait (max-width: 480px) */
 @media (max-width: 480px) {
+      
   /* Service Domain Section */
   .service-domain-heading {
     font-size: 22px;
@@ -410,14 +411,17 @@
     padding: 10px 16px;
   }
 
+  .service-box {
+    margin-top: 0px;
+  }
+
   /* Service Section */
   .service-heading {
-    font-size: 54px;
+
     line-height: 90px;
-    top: -285px;
-  }
-  .service-box {
-    top: -375px;
+        font-size: 45px;
+        margin-top: -280px;
+        /* z-index: 999; */
   }
   .service-item-card {
     flex: 0 1 100%; /* 1 card per row */
