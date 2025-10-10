@@ -320,6 +320,10 @@
   .scroll-section {
     flex-direction: column;
     gap: 16px;
+    padding: 0px;
+  }
+  .hero__image img {
+    margin: 0px 0px 20px 0px;
   }
 
   .scroll-section__icon img {
@@ -335,6 +339,16 @@
   .services-list__item a {
     width: 100%;
     text-align: center;
+  }
+  .scroll-section-icon-top {
+    display: none;
+  }
+  .scroll-section-icon-bottom img, .scroll-section-chat {
+    width: 80px;
+    height: 80px;
+  }
+  .scroll-section-chat {
+    padding: 10px;
   }
 }
 

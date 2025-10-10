@@ -334,9 +334,10 @@
   /* Service Section */
   .service-heading {
     font-size: 105px;
+    margin-top: -425px;
   }
   .service-box {
-    height: auto;
+    margin-top: -135px;
   }
   .service-item-card {
     flex: 0 1 calc(33.33% - 15px); /* 3 cards per row */
@@ -353,6 +354,16 @@
   }
   .service-icon {
     font-size: 1.5rem;
+  }
+  .scroll-section {
+    padding: 0px;
+  }
+  .scroll-section-icon-top {
+    display: none;
+  }
+  .scroll-section-icon-top img, .scroll-section-icon-bottom img {
+    width: 80px;
+    height: 80px;
   }
 }
 
@@ -383,10 +394,10 @@
   .service-heading {
     font-size: 60px;
     line-height: 240px;
-    top: -388px;
+    margin-top: -365px;
   }
   .service-box {
-    top: -550px;
+    margin-top: -110px;
   }
   .service-item-card {
     flex: 0 1 calc(50% - 10px); /* 2 cards per row */
