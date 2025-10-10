@@ -308,6 +308,11 @@
   background-color: #005bb5;
 }
 
+.scroll-section-icon-bottom {
+  display: none;
+}
+
+
 
 /* Large Tablet / Desktop (max-width: 1024px) */
 @media (max-width: 1024px) {
