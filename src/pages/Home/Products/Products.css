@@ -1,0 +1,139 @@
+.products-section {
+  width: 100%;
+  padding: 80px 20px;
+  display: flex;
+  justify-content: center;
+  background: linear-gradient(90deg, #f8faff 0%, #ffffff 100%);
+  font-family: 'Poppins', sans-serif;
+}
+
+.products-container {
+  max-width: 1146px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 52px;
+}
+
+.products-title {
+  font-size: 42px;
+  font-weight: 700;
+  color: #007CE8;
+  text-align: center;
+}
+
+.products-description {
+  font-size: 18px;
+  color: #333;
+  max-width: 780px;
+  text-align: center;
+  line-height: 1.6;
+}
+
+.products-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 28px;
+  width: 100%;
+}
+
+.product-card {
+  background-color: #ffffff;
+  border: 1px solid #e0eaff;
+  border-radius: 16px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.05);
+  width: 340px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  transition: all 0.3s ease;
+}
+
+.product-card:hover {
+  transform: translateY(-6px);
+  border-color: #007CE8;
+  box-shadow: 0 6px 20px rgba(0, 124, 232, 0.2);
+}
+
+.product-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 12px 12px 0 0;
+  margin-bottom: 16px;
+}
+
+.product-content {
+  padding: 28px 24px;
+}
+
+.product-name {
+  font-size: 18px;
+  font-weight: 600;
+  color: #222;
+  margin-bottom: 12px;
+}
+
+.product-rating,
+.product-category {
+  font-size: 15px;
+  color: #555;
+  margin-bottom: 8px;
+}
+
+.product-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin-top: 16px;
+}
+
+.product-btn {
+  padding: 10px 20px;
+  background-color: #007CE8;
+  color: #fff;
+  font-weight: 600;
+  font-size: 14px;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.product-btn:hover {
+  background-color: #005bb5;
+}
+
+.product-price {
+  font-size: 18px;
+  font-weight: 700;
+  color: #007CE8;
+}
+
+/* ✅ Responsive */
+@media (max-width: 1024px) {
+  .products-title {
+    font-size: 36px;
+  }
+}
+
+@media (max-width: 768px) {
+  .products-grid {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .product-card {
+    width: 90%;
+  }
+
+  .products-title {
+    font-size: 30px;
+  }
+
+  .products-description {
+    font-size: 16px;
+  }
+}
