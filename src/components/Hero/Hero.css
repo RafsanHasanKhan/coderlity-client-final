@@ -339,7 +339,7 @@
 @media (max-width: 480px) {
   .hero-container {
 
-    min-height: 100vh;
+    top: 0px;
     padding: 150px 20px 0px 20px;
   }
 
@@ -353,11 +353,21 @@
 
   .hero__image img {
     max-width: 260px;
+    margin: 0px;
+  }
+
+  .scroll-section {
+    padding: 20px 0px;
+    gap: 35px;
   }
 
   .scroll-section__icon img {
     width: 80px;
     height: 80px;
+  }
+
+  .services-box {
+    margin-top: 45px;
   }
 
   .services-list {

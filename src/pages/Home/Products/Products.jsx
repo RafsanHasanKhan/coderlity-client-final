@@ -1,10 +1,11 @@
-
 import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from 'react-icons/md';
+import { TiStarFullOutline } from 'react-icons/ti';
+import { motion, useAnimation, useInView } from 'framer-motion';
+import { useRef, useEffect } from 'react';
 import './Products.css';
 import hyiplab from '/assets/images/products/HYIPLAB.png';
 import Xcash from '/assets/images/products/Xcash.png';
 import signallab from '/assets/images/products/signallab.png';
-import { TiStarFullOutline } from 'react-icons/ti';
 
 const Products = () => {
   const products = [
@@ -34,6 +35,31 @@ const Products = () => {
     },
   ];
 
+  // Animation for the entire grid
+  const containerRef = useRef(null);
+  const isInView = useInView(containerRef, { once: true });
+  const controls = useAnimation();
+
+  useEffect(() => {
+    if (isInView) {
+      controls.start('visible');
+    }
+  }, [isInView, controls]);
+
+  const cardVariants = {
+    hidden: { opacity: 0, y: 50 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.6, staggerChildren: 0.2 },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+  };
+
   return (
     <section className="products-section">
       <div className="products-container">
@@ -44,11 +70,21 @@ const Products = () => {
           projects, designed to meet the needs of modern web development.
         </p>
 
-        <div className="products-grid">
+        <motion.div
+          className="products-grid"
+          ref={containerRef}
+          variants={cardVariants}
+          initial="hidden"
+          animate={controls}
+        >
           {products.map((item, idx) => {
             const numericRating = parseInt(item.rating.split('/')[0]); // Convert "5/5" -> 5
             return (
-              <div className="product-card" key={idx}>
+              <motion.div
+                className="product-card"
+                key={idx}
+                variants={itemVariants}
+              >
                 <img src={item.img} alt={item.name} className="product-image" />
                 <div className="product-content">
                   <h3 className="product-name">{item.name}</h3>
@@ -60,16 +96,14 @@ const Products = () => {
                           key={index}
                           className={index < numericRating ? 'filled' : 'empty'}
                         >
-                          {index < numericRating ? (
-                            <TiStarFullOutline />
-                          ) : (
-                            <TiStarFullOutline />
-                          )}
+                          <TiStarFullOutline />
                         </span>
                       ))}
                     </span>
                   </p>
-                  <p className="product-category">Category: <span>{item.category}</span></p>
+                  <p className="product-category">
+                    Category: <span>{item.category}</span>
+                  </p>
                   <div className="product-footer">
                     <a href={item.link} className="product-btn">
                       Live Preview
@@ -77,10 +111,10 @@ const Products = () => {
                     <span className="product-price">{item.price}</span>
                   </div>
                 </div>
-              </div>
+              </motion.div>
             );
           })}
-        </div>
+        </motion.div>
 
         <div
           style={{
