@@ -85,6 +85,10 @@
   font-size: 12px;
   line-height: 16px;
   color: #2a2a2a;
+  /* margin-top: -50; */
+  transform: translateY(-5px);
+  /* color: red !important; */
+  margin-right: 10px;
 }
 
 .accordion-description {

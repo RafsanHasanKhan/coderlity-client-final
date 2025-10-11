@@ -42,7 +42,7 @@ const services = [
 ];
 
 const DigitalSolutions = () => {
-  const [activeIndex, setActiveIndex] = useState(null);
+  const [activeIndex, setActiveIndex] = useState(0);
 
   const toggleService = index => {
     setActiveIndex(activeIndex === index ? null : index);
