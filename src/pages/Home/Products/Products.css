@@ -134,7 +134,10 @@ color: #FF946A;
     font-size: 36px;
   }
   .products-section {
-    margin-top: 315px;
+    /* margin-top: 315px; */
+  }
+  .service-box {
+        height: 1225px;
   }
 }
 
@@ -143,9 +146,7 @@ color: #FF946A;
     flex-direction: column;
     align-items: center;
   }
-    .products-section {
-    margin-top: 580px;
-  }
+
 
   .product-card {
     width: 90%;
@@ -160,7 +161,7 @@ color: #FF946A;
   }
   @media (max-width: 480px) {
     .products-section {
-    margin-top: 1520px;
+    margin-top: -50px;
   }
   }
 }

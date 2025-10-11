@@ -316,6 +316,9 @@
 
 /* Large Tablet / Desktop (max-width: 1024px) */
 @media (max-width: 1024px) {
+  .service-box {
+    height: auto;
+  }
   /* Service Domain Section */
   .service-domain-heading {
     font-size: 36px;
@@ -362,6 +365,9 @@
 
 /* Tablet / Small Desktop (max-width: 768px) */
 @media (max-width: 768px) {
+  .service-box {
+    height: auto;
+  }
   /* Service Domain Section */
   .service-domain-heading {
     font-size: 28px;
@@ -398,6 +404,12 @@
   }
   .service-items-list {
     gap: 10px;
+  }
+  .service-domain-wrapper {
+    flex-direction: column;
+  }
+  .service-domain-btn {
+    padding: 10px 20px;
   }
 }
 
