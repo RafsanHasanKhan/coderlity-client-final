@@ -1,11 +1,11 @@
-import Hero from "../../components/Hero/Hero";
-import Blogs from "./Blogs/Blogs";
-import DigitalSolutions from "./DigitalSolutions/DigitalSolutions";
-import FAQ from "./FAQ/Faq";
-import Featured from "./Featured/Featured";
-import Products from "./Products/Products";
-import Service from "./Services/Service";
+import Hero from '../../components/Hero/Hero';
+import Blogs from './Blogs/Blogs';
+import DigitalSolutions from './DigitalSolutions/DigitalSolutions';
+import Faq from './Faq/Faq';
 
+import Featured from './Featured/Featured';
+import Products from './Products/Products';
+import Service from './Services/Service';
 
 const Home = () => {
   return (
@@ -15,7 +15,7 @@ const Home = () => {
       <Products></Products>
       <Featured></Featured>
       <DigitalSolutions></DigitalSolutions>
-      <FAQ></FAQ>
+      <Faq></Faq>
       <Blogs></Blogs>
     </div>
   );
