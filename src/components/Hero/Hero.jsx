@@ -16,123 +16,108 @@ import threeDotTwo from '../../../public/assets/images/hero/three-dot-two.png';
 import wordpress from '../../../public/assets/images/hero/wordpress.png';
 
 const Hero = () => {
-  // Intersection Observer
   const [ref, inView] = useInView({
-    triggerOnce: true, // একবার দেখলেই trigger হবে
-    threshold: 0.2, // 20% দেখা গেলে trigger হবে
+    triggerOnce: true,
+    threshold: 0.2,
+  });
+
+  // Animation variants for smooth entrance
+  const fadeUp = (delay = 0) => ({
+    hidden: { opacity: 0, y: 50 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 1, delay, ease: 'easeOut' },
+    },
+  });
+
+  const scaleIn = (delay = 0) => ({
+    hidden: { opacity: 0, scale: 0.9 },
+    visible: {
+      opacity: 1,
+      scale: 1,
+      transition: { duration: 1, delay, ease: 'easeInOut' },
+    },
   });
 
   return (
     <div className="hero-full">
       <div className="hero">
-        <div className="hero-container" ref={ref}>
+        <motion.div
+          className="hero-container"
+          ref={ref}
+          initial="hidden"
+          animate={inView ? 'visible' : 'hidden'}
+        >
           {/* Left Icons */}
           <motion.div
             className="icon-container-left"
-            initial={{ opacity: 0, y: 100 }}
-            animate={inView ? { opacity: 1, y: 0 } : {}}
+            variants={fadeUp(0.2)}
             transition={{ duration: 1 }}
           >
-            <div className="icon-box">
-              <motion.img
-                src={mern}
-                alt="MERN"
-                className="icon icon-top"
-                whileHover={{ scale: 1.1 }}
-              />
+            <div className="icon-box floating">
+              <motion.img src={mern} alt="MERN" className="icon icon-top" />
               <motion.img
                 src={flutter}
                 alt="Flutter"
                 className="icon icon-right"
-                whileHover={{ scale: 1.1 }}
               />
-              <motion.img
-                src={pos}
-                alt="POS"
-                className="icon icon-bottom"
-                whileHover={{ scale: 1.1 }}
-              />
+              <motion.img src={pos} alt="POS" className="icon icon-bottom" />
               <motion.img
                 src={laravel}
                 alt="Laravel"
                 className="icon icon-left"
-                whileHover={{ scale: 1.1 }}
               />
             </div>
           </motion.div>
 
           {/* Right Icons */}
-          <motion.div
-            className="icon-container-right"
-            initial={{ opacity: 0, y: 100 }}
-            animate={inView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 1 }}
-          >
-            <div className="icon-box">
-              <motion.img
-                src={crm}
-                alt="CRM"
-                className="icon icon-top"
-                whileHover={{ scale: 1.1 }}
-              />
+          <motion.div className="icon-container-right" variants={fadeUp(0.4)}>
+            <div className="icon-box floating">
+              <motion.img src={crm} alt="CRM" className="icon icon-top" />
               <motion.img
                 src={wordpress}
-                alt="Wordpress"
+                alt="WordPress"
                 className="icon icon-right"
-                whileHover={{ scale: 1.1 }}
               />
               <motion.img
                 src={marketing}
                 alt="Marketing"
                 className="icon icon-bottom"
-                whileHover={{ scale: 1.1 }}
               />
-              <motion.img
-                src={figma}
-                alt="Figma"
-                className="icon icon-left"
-                whileHover={{ scale: 1.1 }}
-              />
+              <motion.img src={figma} alt="Figma" className="icon icon-left" />
             </div>
           </motion.div>
 
           {/* Subtitle */}
-          <motion.div
-            className="hero__subtitle"
-            initial={{ opacity: 0, y: 30 }}
-            animate={inView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 1 }}
-          >
+          <motion.div className="hero__subtitle" variants={fadeUp(0.3)}>
             <h2>Looking for Your One Stop Solution?</h2>
           </motion.div>
 
           {/* Title */}
-          <motion.div
-            className="hero__title"
-            initial={{ opacity: 0, y: 40 }}
-            animate={inView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 1.2 }}
-          >
+          <motion.div className="hero__title" variants={fadeUp(0.5)}>
             <h1>Complete Digital Solutions for Your Business</h1>
           </motion.div>
 
           {/* Buttons */}
-          <motion.div
-            className="hero__buttons"
-            initial={{ opacity: 0, y: 60 }}
-            animate={inView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 1.4 }}
-          >
+          <motion.div className="hero__buttons" variants={fadeUp(0.7)}>
             <motion.button
               className="hero__btn hero__btn--primary"
-              whileHover={{ scale: 1.05 }}
+              whileHover={{
+                scale: 1.05,
+                boxShadow: '0 0 15px rgba(0, 123, 255, 0.5)',
+              }}
               whileTap={{ scale: 0.95 }}
             >
               <img src={phone} alt="" /> Book an Intro Call
             </motion.button>
             <motion.button
               className="hero__btn hero__btn--secondary"
-              whileHover={{ scale: 1.05 }}
+              whileHover={{
+                scale: 1.05,
+                backgroundColor: '#007bff',
+                color: '#fff',
+              }}
               whileTap={{ scale: 0.95 }}
             >
               Explore Our Work
@@ -140,26 +125,29 @@ const Hero = () => {
           </motion.div>
 
           {/* Hero Image */}
-          <motion.div
-            className="hero__image"
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={inView ? { opacity: 1, scale: 1 } : {}}
-            transition={{ duration: 1.3 }}
-          >
-            <img src={fatoora} alt="Hero Illustration" />
+          <motion.div className="hero__image" variants={scaleIn(0.8)}>
+            <motion.img
+              src={fatoora}
+              alt="Hero Illustration"
+              animate={{ y: [0, -10, 0] }}
+              transition={{
+                repeat: Infinity,
+                duration: 3,
+                ease: 'easeInOut',
+              }}
+            />
           </motion.div>
 
           {/* Scroll Section */}
-          <motion.div
-            className="scroll-section"
-            initial={{ opacity: 0, y: 60 }}
-            animate={inView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 1.5 }}
-          >
+          <motion.div className="scroll-section" variants={fadeUp(1)}>
             <motion.div
               className="scroll-section-icon-top"
-              animate={inView ? { y: [0, 10, 0] } : {}}
-              transition={{ repeat: Infinity, duration: 1.8 }}
+              animate={{ y: [0, 12, 0] }}
+              transition={{
+                repeat: Infinity,
+                duration: 1.8,
+                ease: 'easeInOut',
+              }}
             >
               <img src={downScroll} alt="Scroll Down" />
             </motion.div>
@@ -177,7 +165,11 @@ const Hero = () => {
                   <motion.li
                     key={index}
                     className="services-list__item"
-                    whileHover={{ scale: 1.05 }}
+                    whileHover={{
+                      scale: 1.05,
+                      color: '#007bff',
+                      transition: { duration: 0.2 },
+                    }}
                   >
                     <a href="#" className={index === 0 ? 'active' : ''}>
                       {item}
@@ -191,12 +183,16 @@ const Hero = () => {
               className="scroll-section__extras"
               initial={{ opacity: 0 }}
               animate={inView ? { opacity: 1 } : {}}
-              transition={{ delay: 1.2, duration: 0.8 }}
+              transition={{ delay: 1.2, duration: 1 }}
             >
               <motion.div
                 className="scroll-section-icon-bottom"
-                animate={inView ? { y: [0, -10, 0] } : {}}
-                transition={{ repeat: Infinity, duration: 1.8 }}
+                animate={{ y: [0, -12, 0] }}
+                transition={{
+                  repeat: Infinity,
+                  duration: 1.8,
+                  ease: 'easeInOut',
+                }}
               >
                 <img src={downScroll} alt="Scroll Down" />
               </motion.div>
@@ -210,11 +206,12 @@ const Hero = () => {
                 src={threeDotTwo}
                 alt="More Options"
                 className="scroll-section__dots"
-                whileHover={{ rotate: 90 }}
+                animate={{ rotate: [0, 500, -15, 0] }}
+                transition={{ repeat: Infinity, duration: 4 }}
               />
             </motion.div>
           </motion.div>
-        </div>
+        </motion.div>
       </div>
     </div>
   );

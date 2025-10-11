@@ -73,7 +73,7 @@
   left: 50%;
   width: 47px;
   height: 48px;
-  animation: bounce 1.5s infinite;
+  /* animation: bounce 1.5s infinite; */
 }
 
 .icon-right {
@@ -82,7 +82,7 @@
   transform: translate(50%, -50%);
   width: 47px;
   height: 48px;
-  animation: bounce 1.5s infinite;
+  /* animation: bounce 1.5s infinite; */
 }
 
 .icon-bottom {
@@ -90,7 +90,7 @@
   left: 50%;
   width: 37px;
   height: 37px;
-  animation: bounce 1.5s infinite;
+  /* animation: bounce 1.5s infinite; */
 }
 
 .icon-left {
@@ -99,7 +99,7 @@
   transform: translate(-50%, -50%);
   width: 46px;
   height: 46px;
-  animation: bounce 1.5s infinite;
+  /* animation: bounce 1.5s infinite; */
 }
 
 /* ==========================
@@ -197,7 +197,7 @@
 .scroll-section-icon-bottom img {
   width: 190px;
   height: 190px;
-  animation: bounce 1.5s infinite;
+  /* animation: bounce 1.5s infinite; */
 }
 
 .services-list {
@@ -250,13 +250,16 @@
   height: 100%;
 }
 
-/* Animation */
-@keyframes bounce {
+.floating {
+  animation: float 4s ease-in-out infinite;
+}
+
+@keyframes float {
   0%, 100% {
-    transform: translateY(0);
+    transform: translateY(20px);
   }
   50% {
-    transform: translateY(6px);
+    transform: translateY(40px);
   }
 }
 
