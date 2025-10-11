@@ -1,4 +1,5 @@
 import Hero from "../../components/Hero/Hero";
+import Blogs from "./Blogs/Blogs";
 import DigitalSolutions from "./DigitalSolutions/DigitalSolutions";
 import Featured from "./Featured/Featured";
 import Products from "./Products/Products";
@@ -13,6 +14,7 @@ const Home = () => {
       <Products></Products>
       <Featured></Featured>
       <DigitalSolutions></DigitalSolutions>
+      <Blogs></Blogs>
     </div>
   );
 };
