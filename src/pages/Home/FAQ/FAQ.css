@@ -14,7 +14,7 @@
   gap: 80px;
 }
 
-/* ===== Left Side ===== */
+/* ==== Left Side ==== */
 .faq-left h2 {
   margin-bottom: 20px;
 
@@ -29,12 +29,10 @@
 
 .faq-left p {
   margin-bottom: 35px;
-
   font-style: normal;
   font-weight: 400;
   font-size: 16px;
   line-height: 130%;
-
   color: #2a2a2a;
 }
 
